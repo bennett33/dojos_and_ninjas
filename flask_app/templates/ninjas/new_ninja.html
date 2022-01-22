@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 15px;
+        }
+        #age {
+            margin-left: 56px;
+        }
+        #dojo-select {
+            margin-left: 51px;
+        }
+        #btn-id {
+            margin-left: 93px;
+        }
+        #first-name-space {
+            margin-left: 10px;
+        }
+        #last-name-space {
+            margin-left: 10px;
+        }
+        .ninja-header {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="ninja-header">New Ninja</h1>
+        <form action="/ninjas/create" method='post'>
+            <p>
+                Dojo:
+                <select name="dojo_id" id="dojo-select">
+                    {% for dojo in dojos %}
+                    <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                    {% endfor %}
+                </select> 
+            </p>
+            <p>
+                First Name:
+                <input type="text" id="first-name-space" name="first_name">
+            </p>
+            <p>
+                Last Name:
+                <input type="text" id="last-name-space" name="last_name">
+            </p>
+            <button id="btn-id">Create!</button>
+        </form>
+        <p><a href="/">Home</a></p>
+    </div>
+</body>
+</html>

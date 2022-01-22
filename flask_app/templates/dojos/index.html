@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 15px;
+        }
+        .column-container {
+            display: flex;
+        }
+        .column {
+            padding-right: 60px;
+        }
+        #input-name {
+            width: 155px;
+            margin-left: 20px;
+        }
+        #btn-id {
+            margin-left: 70px;
+        }
+        .column h1 {
+            margin-bottom: 20px;
+        }
+        .dojo-list {
+            border: black;
+            border-style: solid;
+            border-width: 1.5px;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column-container">
+            <div class="column">
+                <h1>New Dojo</h1>
+                <form action="/dojos/create" method="post">
+                    <p>
+                        Name:
+                        <input type="text" id="input-name" name="name">
+                    </p>
+                    <button id="btn-id">Create!</button>
+                </form>
+            </div>
+            <div class="column">
+                <h1>All Dojos</h1>
+                <div class="dojo-list">
+                    {% for dojo in dojos %}
+                    <a href="/dojos/{{dojo.id}}">{{ dojo.name }}</a>
+                    {% endfor %}
+                </div>
+                <p><a href="/ninjas/new">Add Ninja</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
